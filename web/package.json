@@ -1,0 +1,55 @@
+{
+  "name": "privora-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "author": "Vassel Goleyu",
+  "license": "MIT",
+  "packageManager": "pnpm@10.34.9",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "next"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node ../scripts/prepare-pdfjs-assets.mjs && vite",
+    "build": "node ../scripts/prepare-pdfjs-assets.mjs && tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "engine:build": "vite build --config vite.engine-e2e.config.ts",
+    "engine:e2e": "playwright test --config e2e/playwright.engine.config.ts",
+    "ui:e2e": "node ../scripts/prepare-pdfjs-assets.mjs && vite build && playwright test --config e2e/playwright.ui.config.ts",
+    "prepare:pdfjs": "node ../scripts/prepare-pdfjs-assets.mjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^6.5.438",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.65.1",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/node": "^26.6.10",
+    "@types/react": "^19.3.2",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "axe-core": "4.14.1",
+    "eslint": "^10.15.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "geist": "^1.9.2",
+    "globals": "^17.14.0",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.74.0",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.1"
+  }
+}

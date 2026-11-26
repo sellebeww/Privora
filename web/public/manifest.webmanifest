@@ -1,0 +1,12 @@
+{
+  "name": "Privora",
+  "short_name": "Privora",
+  "lang": "id",
+  "description": "Alat redaksi data pribadi untuk dokumen berbahasa Indonesia. Berjalan di browser, tanpa mengunggah apa pun.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a0a0b",
+  "theme_color": "#0a0a0b",
+  "icons": [{ "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

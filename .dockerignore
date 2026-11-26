@@ -1,0 +1,15 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Vassel Goleyu
+.git
+.tools
+target
+out
+**/node_modules
+web/dist
+web/dist-*
+web/public/pdfjs
+web/src/wasm/pkg
+web/e2e/.browsers
+web/test-results
+**/.DS_Store
+**/.env*

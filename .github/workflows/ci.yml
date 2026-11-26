@@ -1,0 +1,85 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Vassel Goleyu
+# Checks and builds only. Nothing is deployed anywhere.
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+env:
+  WASM_BINDGEN_VERSION: 0.2.130
+  BINARYEN_VERSION: version_133
+  BINARYEN_SHA256: 2dc9c7813f5375db93d96ead4b78222fcc3e2677bbb832297af4797782a37489
+
+jobs:
+  rust:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
+      - run: cargo fmt --check
+      - run: cargo clippy --locked --workspace --all-targets -- -D warnings
+      - run: cargo test --locked --workspace
+
+  web:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
+      - name: Install wasm-bindgen-cli (version must equal the crate version)
+        run: cargo install wasm-bindgen-cli --version "$WASM_BINDGEN_VERSION" --locked --root "$PWD/.tools"
+      - name: Install binaryen (checksum pinned)
+        run: |
+          curl -fsSL -o /tmp/binaryen.tar.gz "https://github.com/WebAssembly/binaryen/releases/download/${BINARYEN_VERSION}/binaryen-${BINARYEN_VERSION}-x86_64-linux.tar.gz"
+          echo "${BINARYEN_SHA256}  /tmp/binaryen.tar.gz" | sha256sum -c -
+          mkdir -p .tools/binaryen
+          tar xzf /tmp/binaryen.tar.gz -C .tools/binaryen --strip-components=1
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: web/pnpm-lock.yaml
+      - run: pnpm -C web install --frozen-lockfile
+      - run: make wasm
+      - run: make web
+      - run: make check-network
+      - run: make check-ui
+      - name: Hashes of the build
+        run: node scripts/hash-dist.mjs web/dist
+      - uses: actions/upload-artifact@v4
+        with:
+          name: privora-dist
+          path: web/dist
+          if-no-files-found: error
+
+  repro:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pinned toolchain from rust-toolchain.toml
+        run: rustup show active-toolchain || rustup toolchain install
+      - name: Install wasm-bindgen-cli (version must equal the crate version)
+        run: cargo install wasm-bindgen-cli --version "$WASM_BINDGEN_VERSION" --locked --root "$PWD/.tools"
+      - name: Install binaryen (checksum pinned)
+        run: |
+          curl -fsSL -o /tmp/binaryen.tar.gz "https://github.com/WebAssembly/binaryen/releases/download/${BINARYEN_VERSION}/binaryen-${BINARYEN_VERSION}-x86_64-linux.tar.gz"
+          echo "${BINARYEN_SHA256}  /tmp/binaryen.tar.gz" | sha256sum -c -
+          mkdir -p .tools/binaryen
+          tar xzf /tmp/binaryen.tar.gz -C .tools/binaryen --strip-components=1
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: web/package.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+      - name: Build twice in clean directories and compare every file
+        run: scripts/repro-check.sh

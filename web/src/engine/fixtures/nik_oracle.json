@@ -1,0 +1,827 @@
+[
+ {
+  "name": "male ordinary",
+  "nik": "3201011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "female ordinary",
+  "nik": "3201015505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "P",
+   "born": [
+    [
+     1990,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "province 00",
+  "nik": "0001011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "UNKNOWN_PROVINCE"
+  }
+ },
+ {
+  "name": "province 10 unused",
+  "nik": "1001011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "UNKNOWN_PROVINCE"
+  }
+ },
+ {
+  "name": "province 20 gap",
+  "nik": "2001011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "UNKNOWN_PROVINCE"
+  }
+ },
+ {
+  "name": "province 97 unused",
+  "nik": "9701011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "UNKNOWN_PROVINCE"
+  }
+ },
+ {
+  "name": "province 93 Papua Selatan",
+  "nik": "9301011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "province 96 Papua Barat Daya",
+  "nik": "9601011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "regency 00",
+  "nik": "3200011505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "ZERO_REGENCY"
+  }
+ },
+ {
+  "name": "district 00",
+  "nik": "3201001505900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "ZERO_REGENCY"
+  }
+ },
+ {
+  "name": "day 00",
+  "nik": "3201010005900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "day 01",
+  "nik": "3201010105900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     1
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "day 31 in May",
+  "nik": "3201013105900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     31
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "day 32",
+  "nik": "3201013205900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "day 40",
+  "nik": "3201014005900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "day 41 female first",
+  "nik": "3201014105900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "P",
+   "born": [
+    [
+     1990,
+     5,
+     1
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "day 71 female last",
+  "nik": "3201017105900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "P",
+   "born": [
+    [
+     1990,
+     5,
+     31
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "day 72",
+  "nik": "3201017205900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "day 99",
+  "nik": "3201019905900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "month 00",
+  "nik": "3201011500900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "month 13",
+  "nik": "3201011513900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "31 April",
+  "nik": "3201013104900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "30 April",
+  "nik": "3201013004900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     4,
+     30
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "30 February",
+  "nik": "3201013002900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "29 Feb yy00: only 2000 is leap",
+  "nik": "3201012902000001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     2000,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "29 Feb yy04: both leap",
+  "nik": "3201012902040001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     2004,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "29 Feb yy01: none leap",
+  "nik": "3201012902010001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "29 Feb yy28: 2028 is future",
+  "nik": "3201012902280001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1928,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "female 29 Feb yy96",
+  "nik": "3201016902960001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "P",
+   "born": [
+    [
+     1996,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "born today",
+  "nik": "3201012611260001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1926,
+     11,
+     26
+    ],
+    [
+     2026,
+     11,
+     26
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "born tomorrow is future, 1926 stays",
+  "nik": "3201012711260001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1926,
+     11,
+     27
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "age 120, one day before turning 121",
+  "nik": "3201012711050001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1905,
+     11,
+     27
+    ],
+    [
+     2005,
+     11,
+     27
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "exactly 121 today",
+  "nik": "3201012611050001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     2005,
+     11,
+     26
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "exactly 120 today",
+  "nik": "3201012611060001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1906,
+     11,
+     26
+    ],
+    [
+     2006,
+     11,
+     26
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "both centuries valid",
+  "nik": "3201011505100001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1910,
+     5,
+     15
+    ],
+    [
+     2010,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "serial 0000",
+  "nik": "3201011505900000",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "ZERO_SERIAL"
+  }
+ },
+ {
+  "name": "serial 9999",
+  "nik": "3201011505909999",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1990,
+     5,
+     15
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "rule order R1 before R3",
+  "nik": "0001011513900000",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "UNKNOWN_PROVINCE"
+  }
+ },
+ {
+  "name": "rule order R2 before R3",
+  "nik": "3200011513900001",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "ZERO_REGENCY"
+  }
+ },
+ {
+  "name": "rule order R3 before R4",
+  "nik": "3201011513900000",
+  "today": [
+   2026,
+   11,
+   26
+  ],
+  "expect": {
+   "error": "INVALID_DATE"
+  }
+ },
+ {
+  "name": "leap birthday, reference 28 Feb 2025",
+  "nik": "3201012902040001",
+  "today": [
+   2025,
+   2,
+   28
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1904,
+     2,
+     29
+    ],
+    [
+     2004,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "leap birthday, reference 1 Mar 2025",
+  "nik": "3201012902040001",
+  "today": [
+   2025,
+   3,
+   1
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     2004,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "reference on a leap day, born that day",
+  "nik": "3201012902280001",
+  "today": [
+   2028,
+   2,
+   29
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1928,
+     2,
+     29
+    ],
+    [
+     2028,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "reference on a leap day, 29 Feb 1908 is 120",
+  "nik": "3201012902080001",
+  "today": [
+   2028,
+   2,
+   29
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1908,
+     2,
+     29
+    ],
+    [
+     2008,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "reference 31 Dec 1999",
+  "nik": "3201010101000001",
+  "today": [
+   1999,
+   12,
+   31
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1900,
+     1,
+     1
+    ]
+   ],
+   "ambiguous": false
+  }
+ },
+ {
+  "name": "reference 1 Jan 2000",
+  "nik": "3201010101000001",
+  "today": [
+   2000,
+   1,
+   1
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1900,
+     1,
+     1
+    ],
+    [
+     2000,
+     1,
+     1
+    ]
+   ],
+   "ambiguous": true
+  }
+ },
+ {
+  "name": "reference 29 Feb 2024, born 29 Feb 1904",
+  "nik": "3201012902040001",
+  "today": [
+   2024,
+   2,
+   29
+  ],
+  "expect": {
+   "gender": "L",
+   "born": [
+    [
+     1904,
+     2,
+     29
+    ],
+    [
+     2004,
+     2,
+     29
+    ]
+   ],
+   "ambiguous": true
+  }
+ }
+]

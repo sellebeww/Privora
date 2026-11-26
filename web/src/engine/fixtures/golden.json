@@ -1,0 +1,60 @@
+{
+  "cases": [
+    {
+      "find": "[]",
+      "name": "empty",
+      "needle": "NIK",
+      "options": "{\"referenceDate\":{\"year\":2026,\"month\":11,\"day\":25}}",
+      "redactBlock": "",
+      "redactLabel": "",
+      "restoreStrict": "{\"text\":\"\",\"report\":{\"restored\":0,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "restoreTolerant": "{\"text\":\"\",\"report\":{\"restored\":0,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "scan": "[]",
+      "spans": "[]",
+      "text": "",
+      "tokenize": "{\"text\":\"\",\"map\":[]}"
+    },
+    {
+      "find": "[{\"start\":0,\"end\":4}]",
+      "name": "form",
+      "needle": "Nama",
+      "options": "{\"referenceDate\":{\"year\":2026,\"month\":11,\"day\":25}}",
+      "redactBlock": "Nama: ████████\nNIK: ████████\nHP: ████████\nEmail: ████████\nAlamat: ████████\n",
+      "redactLabel": "Nama: [NAMA]\nNIK: [NIK]\nHP: [TELEPON]\nEmail: [EMAIL]\nAlamat: [ALAMAT]\n",
+      "restoreStrict": "{\"text\":\"Nama: Budi Santoso\\nNIK: 3174051509900001\\nHP: 0812-3456-7890\\nEmail: budi@example.com\\nAlamat: Jl. Mawar No. 5, RT 01/RW 02\\n\",\"report\":{\"restored\":5,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "restoreTolerant": "{\"text\":\"Nama: Budi Santoso\\nNIK: 3174051509900001\\nHP: 0812-3456-7890\\nEmail: budi@example.com\\nAlamat: Jl. Mawar No. 5, RT 01/RW 02\\n\",\"report\":{\"restored\":5,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "scan": "[{\"kind\":\"NAMA\",\"start\":6,\"end\":18,\"confidence\":\"RENDAH\",\"reason\":\"NAMA_BERLABEL\",\"validation\":null},{\"kind\":\"NIK\",\"start\":24,\"end\":40,\"confidence\":\"TINGGI\",\"reason\":\"NIK_STRUKTUR_VALID_KATA_KUNCI\",\"validation\":{\"type\":\"NIK_OK\",\"province\":31,\"gender\":\"L\",\"birthCandidates\":[{\"year\":1990,\"month\":9,\"day\":15}],\"centuryAmbiguous\":false}},{\"kind\":\"TELEPON\",\"start\":45,\"end\":59,\"confidence\":\"TINGGI\",\"reason\":\"TELEPON_KATA_KUNCI\",\"validation\":null},{\"kind\":\"EMAIL\",\"start\":67,\"end\":83,\"confidence\":\"TINGGI\",\"reason\":\"EMAIL_FORMAT\",\"validation\":null},{\"kind\":\"ALAMAT\",\"start\":92,\"end\":120,\"confidence\":\"RENDAH\",\"reason\":\"ALAMAT_BERLABEL\",\"validation\":null}]",
+      "spans": "[{\"end\":18,\"kind\":\"NAMA\",\"start\":6},{\"end\":40,\"kind\":\"NIK\",\"start\":24},{\"end\":59,\"kind\":\"TELEPON\",\"start\":45},{\"end\":83,\"kind\":\"EMAIL\",\"start\":67},{\"end\":120,\"kind\":\"ALAMAT\",\"start\":92}]",
+      "text": "Nama: Budi Santoso\nNIK: 3174051509900001\nHP: 0812-3456-7890\nEmail: budi@example.com\nAlamat: Jl. Mawar No. 5, RT 01/RW 02\n",
+      "tokenize": "{\"text\":\"Nama: [[NAMA_1]]\\nNIK: [[NIK_1]]\\nHP: [[TELEPON_1]]\\nEmail: [[EMAIL_1]]\\nAlamat: [[ALAMAT_1]]\\n\",\"map\":[{\"token\":\"[[NAMA_1]]\",\"value\":\"Budi Santoso\"},{\"token\":\"[[NIK_1]]\",\"value\":\"3174051509900001\"},{\"token\":\"[[TELEPON_1]]\",\"value\":\"0812-3456-7890\"},{\"token\":\"[[EMAIL_1]]\",\"value\":\"budi@example.com\"},{\"token\":\"[[ALAMAT_1]]\",\"value\":\"Jl. Mawar No. 5, RT 01/RW 02\"}]}"
+    },
+    {
+      "find": "[{\"start\":0,\"end\":2},{\"start\":2,\"end\":4},{\"start\":69,\"end\":71}]",
+      "name": "emoji_and_diacritics",
+      "needle": "😀",
+      "options": "{\"referenceDate\":{\"year\":2026,\"month\":11,\"day\":25}}",
+      "redactBlock": "😀😀 Nama: ████████\nNIK ████████ 👍 wa ████████ 😀\n",
+      "redactLabel": "😀😀 Nama: [NAMA]\nNIK [NIK] 👍 wa [TELEPON] 😀\n",
+      "restoreStrict": "{\"text\":\"😀😀 Nama: Siti Nurhaliza Éé\\nNIK 3174055509950002 👍 wa 081234567890 😀\\n\",\"report\":{\"restored\":3,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "restoreTolerant": "{\"text\":\"😀😀 Nama: Siti Nurhaliza Éé\\nNIK 3174055509950002 👍 wa 081234567890 😀\\n\",\"report\":{\"restored\":3,\"flagged\":[],\"unused\":[],\"unknown\":[]}}",
+      "scan": "[{\"kind\":\"NAMA\",\"start\":11,\"end\":28,\"confidence\":\"RENDAH\",\"reason\":\"NAMA_BERLABEL\",\"validation\":null},{\"kind\":\"NIK\",\"start\":33,\"end\":49,\"confidence\":\"TINGGI\",\"reason\":\"NIK_STRUKTUR_VALID_KATA_KUNCI\",\"validation\":{\"type\":\"NIK_OK\",\"province\":31,\"gender\":\"P\",\"birthCandidates\":[{\"year\":1995,\"month\":9,\"day\":15}],\"centuryAmbiguous\":false}},{\"kind\":\"TELEPON\",\"start\":56,\"end\":68,\"confidence\":\"TINGGI\",\"reason\":\"TELEPON_KATA_KUNCI\",\"validation\":null}]",
+      "spans": "[{\"end\":28,\"kind\":\"NAMA\",\"start\":11},{\"end\":49,\"kind\":\"NIK\",\"start\":33},{\"end\":68,\"kind\":\"TELEPON\",\"start\":56}]",
+      "text": "😀😀 Nama: Siti Nurhaliza Éé\nNIK 3174055509950002 👍 wa 081234567890 😀\n",
+      "tokenize": "{\"text\":\"😀😀 Nama: [[NAMA_1]]\\nNIK [[NIK_1]] 👍 wa [[TELEPON_1]] 😀\\n\",\"map\":[{\"token\":\"[[NAMA_1]]\",\"value\":\"Siti Nurhaliza Éé\"},{\"token\":\"[[NIK_1]]\",\"value\":\"3174055509950002\"},{\"token\":\"[[TELEPON_1]]\",\"value\":\"081234567890\"}]}"
+    },
+    {
+      "find": "[{\"start\":0,\"end\":4}]",
+      "name": "token_lookalike",
+      "needle": "Pesa",
+      "options": "{\"referenceDate\":{\"year\":2026,\"month\":11,\"day\":25}}",
+      "redactBlock": "Pesan [[NIK_1]] lama. NIK: ████████ dan ████████ lagi.",
+      "redactLabel": "Pesan [[NIK_1]] lama. NIK: [NIK] dan [NIK] lagi.",
+      "restoreStrict": "{\"text\":\"Pesan [[NIK_1]] lama. NIK: 3174051509900001 dan 3174051509900001 lagi.\",\"report\":{\"restored\":2,\"flagged\":[],\"unused\":[],\"unknown\":[\"[[NIK_1]]\"]}}",
+      "restoreTolerant": "{\"text\":\"Pesan [[NIK_1]] lama. NIK: 3174051509900001 dan 3174051509900001 lagi.\",\"report\":{\"restored\":2,\"flagged\":[],\"unused\":[],\"unknown\":[\"[[NIK_1]]\"]}}",
+      "scan": "[{\"kind\":\"NIK\",\"start\":27,\"end\":43,\"confidence\":\"TINGGI\",\"reason\":\"NIK_STRUKTUR_VALID_KATA_KUNCI\",\"validation\":{\"type\":\"NIK_OK\",\"province\":31,\"gender\":\"L\",\"birthCandidates\":[{\"year\":1990,\"month\":9,\"day\":15}],\"centuryAmbiguous\":false}},{\"kind\":\"NIK\",\"start\":48,\"end\":64,\"confidence\":\"TINGGI\",\"reason\":\"NIK_STRUKTUR_VALID_KATA_KUNCI\",\"validation\":{\"type\":\"NIK_OK\",\"province\":31,\"gender\":\"L\",\"birthCandidates\":[{\"year\":1990,\"month\":9,\"day\":15}],\"centuryAmbiguous\":false}}]",
+      "spans": "[{\"end\":43,\"kind\":\"NIK\",\"start\":27},{\"end\":64,\"kind\":\"NIK\",\"start\":48}]",
+      "text": "Pesan [[NIK_1]] lama. NIK: 3174051509900001 dan 3174051509900001 lagi.",
+      "tokenize": "{\"text\":\"Pesan [[NIK_1]] lama. NIK: [[PRV-NIK_1]] dan [[PRV-NIK_1]] lagi.\",\"map\":[{\"token\":\"[[PRV-NIK_1]]\",\"value\":\"3174051509900001\"}]}"
+    }
+  ]
+}

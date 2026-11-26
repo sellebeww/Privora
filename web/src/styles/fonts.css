@@ -1,0 +1,17 @@
+/* SPDX-License-Identifier: MIT */
+/* Copyright (c) 2026 Vassel Goleyu */
+/* Geist (SIL OFL 1.1) bundled locally from the "geist" package. No external font requests. */
+@font-face {
+  font-family: "Geist";
+  src: url("@geist/geist-sans/Geist-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Geist Mono";
+  src: url("@geist/geist-mono/GeistMono-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

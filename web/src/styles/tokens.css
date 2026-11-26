@@ -1,0 +1,55 @@
+/* SPDX-License-Identifier: MIT */
+/* Copyright (c) 2026 Vassel Goleyu */
+/* Single source of design tokens. Dark only. */
+:root {
+  --bg: #0a0a0b;
+  --bg-elevated: #101012;
+  --surface: #141417;
+  --surface-hover: #1a1a1e;
+  --border: #26262c;
+  --border-strong: #34343c;
+  --text: #ededef;
+  --text-muted: #9a9aa3;
+  --text-subtle: #6b6b74;
+  --accent: #a3e635;
+  --accent-hover: #bef264;
+  --accent-ink: #0a0a0b;
+  --accent-subtle: rgba(163, 230, 53, 0.12);
+  --accent-border: rgba(163, 230, 53, 0.35);
+  --danger: #f87171;
+  --warning: #fbbf24;
+  --radius-chip: 6px;
+  --radius-control: 8px;
+  --radius-panel: 12px;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --glow: rgba(163, 230, 53, 0.06);
+  /* spacing scale (4px base): 4, 8, 12, 16, 24, 32, 48, 64 */
+  --space-unit: 4px;
+  /* layout sizes */
+  --size-topbar: 56px;
+  --size-nav: 240px;
+  --size-panel: 360px;
+  --size-doc: 70vh;
+  --size-readable: 720px;
+  --size-control-sm: 32px;
+  --size-control-md: 36px;
+  /* type */
+  --text-small: 13px;
+  --text-body: 14px;
+  --text-title-3: 20px;
+  --text-title-2: 24px;
+  --text-title-1: 32px;
+  --tracking-title: -0.02em;
+  --tracking-subtitle: -0.01em;
+  /* motion */
+  --dur: 140ms;
+  --ease: ease-out;
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur: 0ms;
+  }
+}
